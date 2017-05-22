@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Despesas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<h3>Orçado X Realizado</h3>
+    <canvas #barCanvas></canvas>
+
+    <ion-card>
+      <ion-card-header>
+          Pesquisar ano/mês diferente
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <ion-item item-left>
+          <ion-label stacked>Ano:</ion-label>
+          <ion-datetime displayFormat="YYYY" [(ngModel)]="anoDif" placeholder="Selecione o ano" min="2003"></ion-datetime>
+        </ion-item>
+        <ion-item item-right>
+          <ion-label stacked>Mês:</ion-label>
+          <ion-select [(ngModel)]="mesDif" placeholder="Selecione o mês">
+            <ion-option>1</ion-option>
+            <ion-option>2</ion-option>
+            <ion-option>3</ion-option>
+            <ion-option>4</ion-option>
+            <ion-option>5</ion-option>
+            <ion-option>6</ion-option>
+            <ion-option>7</ion-option>
+            <ion-option>8</ion-option>
+            <ion-option>9</ion-option>
+            <ion-option>10</ion-option>
+            <ion-option>11</ion-option>
+            <ion-option>12</ion-option>
+          </ion-select>
+        </ion-item>
+        <button bottom ion-button full small primary color="purple" (click)="buscarComAnoMesDiferente()">Buscar</button>
+
+      </ion-card-content>
+      <button bottom ion-button full small primary color="purple" (click)="openPageFuncoes()">Visualizar por Areas</button>
+      <button bottom ion-button full primary color="headerColor" (click)="openPagePesquisa()">Pesquisa Avançada</button>
+
+    </ion-card>
+
+
+<!--  <ion-card>s
+    <ion-card-header>
+      Doughnut Chart
+    </ion-card-header>
+
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>-->
+</ion-content>

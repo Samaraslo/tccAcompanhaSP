@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Contratos</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content>
+
+
+<ion-searchbar (ionInput)="getItems($event)" placeholder="Busca" ></ion-searchbar>
+
+<div padding>
+  <button ion-button primary small icon-left full color="purple" (click)="openModalFiltros()" >
+    <ion-icon name="filter"></ion-icon>Filtrar
+  </button>
+</div>
+  <ion-list *ngFor="let c of objContratos.lstContratos; let i = index">
+          <ion-item *ngIf="i<10" (click)="openDetalhesContrato(c.codContrato)">
+            <ion-icon  item-left name="md-arrow-dropright" color="primary"></ion-icon>
+              <div item-left>{{c.codContrato}}</div>
+              <div item-right> <span color="txtGray">{{c.anoContrato}}</span></div>
+          </ion-item>
+
+  </ion-list>
+  <ion-fab right bottom primary>
+   <button ion-fab color="primary" ><ion-icon name="add"></ion-icon></button>
+   <ion-fab-list side="top">
+      <button ion-fab color="btnGreen"  (click)="openInformacoes()"      ><ion-icon name="information"></ion-icon></button>
+      <button ion-fab color="btnPurple" (click)="openDetalhesContrato()" ><ion-icon name="ios-more"></ion-icon></button>
+    </ion-fab-list>
+ </ion-fab>
+
+ <ion-fab left bottom >
+  <button ion-fab color="btnPink" (click)="openGrafico()"><ion-icon name="stats"></ion-icon></button>
+</ion-fab>
+
+
+
+
+  </ion-content>

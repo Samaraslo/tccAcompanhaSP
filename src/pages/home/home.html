@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Início</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+
+  <ion-slides pager autoplay="10000" loop="true">
+    <ion-slide>
+      <img class="imgHome" src="assets/img/sp.jpg"/>
+    </ion-slide>
+    <ion-slide>
+      <img class="imgHome" src="assets/img/sp2.jpg"/>
+    </ion-slide>
+    <ion-slide>
+      <img class="imgHome" src="assets/img/sp3.jpg"/>
+    </ion-slide>
+</ion-slides>
+
+<div>
+  <button ion-button full color="purple" (click)="openModalSobreApp()" class="btnHome">Sobre o aplicativo</button>
+  <button ion-button full color="purpleSoft" class="btnHome">...</button>
+  <button ion-button full color="purple" (click)="openFormFaleConosco()" class="btnHome">Fale Conosco :)</button>
+</div>
+</ion-content>

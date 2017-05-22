@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pesquisa Avançada</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>Ano:</ion-label>
+          <ion-datetime displayFormat="YYYY" type="text" placeholder="Selecione o ano"></ion-datetime>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label stacked>Mês:</ion-label>
+          <ion-input  type="number" min="1" max="12"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Empresa:</ion-label>
+          <ion-select placeholder="Selecione a empresa"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Orgão</ion-label>
+          <ion-select okText="OK" cancelText="Cancelar" placeholder="Selecione o orgão">
+            <ion-option value="duvida">Dúvida</ion-option>
+            <ion-option value="sugestao">Sugestão</ion-option>
+            <ion-option value="critica">Crítica</ion-option>
+            <ion-option value="elogio">Elogio</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Unidade</ion-label>
+          <ion-select placeholder="Selecione a unidade"></ion-select>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label stacked>Area</ion-label>
+          <ion-select placeholder="Selecione a área"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Sub-Area</ion-label>
+          <ion-select  placeholder="Selecione a sub-area"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Projeto</ion-label>
+          <ion-select  placeholder="Selecione o projeto"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Programa</ion-label>
+          <ion-select placeholder="Selecione o programa"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Categoria</ion-label>
+          <ion-select  placeholder="Selecione a categoria"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Grupo</ion-label>
+          <ion-select  placeholder="Selecione o grupo"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Modalidade</ion-label>
+          <ion-select  placeholder="Selecione a modalidade"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Elemento</ion-label>
+          <ion-select  placeholder="Selecione o elemento"></ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Fonte de Recurso</ion-label>
+          <ion-select  placeholder="Selecione a fonte de recurso"></ion-select>
+        </ion-item>
+      </ion-list>
+      <div padding>
+        <button ion-button block color="purple">Aplicar Filtros</button>
+      </div>
+
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <ion-title>Fale Conosco</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="person" color="purple" item-left></ion-icon>
+        <ion-label stacked>Nome:</ion-label>
+        <ion-input formControlName="name" type="text" placeholder="Nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="mail" color="purple" item-left></ion-icon>
+        <ion-label stacked>E-mail:</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="E-mail"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" color="purple" item-left></ion-icon>
+        <ion-label stacked>Data de Nascimento:</ion-label>
+        <ion-datetime formControlName="dateBirth" displayFormat="DD-MM-YYYY" placeholder="DD-MM-YYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="paper" color="purple" item-left></ion-icon>
+        <ion-label stacked>Assunto</ion-label>
+        <ion-select formControlName="subject" okText="OK" cancelText="Cancelar" placeholder="Selecione">
+          <ion-option value="duvida">Dúvida</ion-option>
+          <ion-option value="sugestao">Sugestão</ion-option>
+          <ion-option value="critica">Crítica</ion-option>
+          <ion-option value="elogio">Elogio</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="create" color="purple" item-left></ion-icon>
+        <ion-label stacked>Digite sua mensagem</ion-label>
+        <ion-textarea formControlName="msgForm" type="textarea"   placeholder="Digite sua mensagem aqui"></ion-textarea>
+      </ion-item>
+<!--
+      <ion-row radio-group formControlName="gender">
+        <ion-item>
+          <ion-icon name="woman" item-left></ion-icon>
+          <ion-label>Feminino</ion-label>
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="man" item-left></ion-icon>
+          <ion-label>Masculino</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-row>
+-->
+    </ion-list>
+    <div padding>
+      <!--<button ion-button block type="submit" color="purple" [disabled]="!myForm.valid">Enviar</button>-->
+      <button ion-button block type="submit" color="purple">Enviar</button>
+    </div>
+  </form>
+</ion-content>

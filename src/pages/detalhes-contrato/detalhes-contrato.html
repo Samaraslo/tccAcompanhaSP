@@ -1,0 +1,218 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <ion-title>Detalhes do Contrato</ion-title>
+  </ion-navbar>
+</ion-header>
+    
+<ion-content class="has-header has-subheader"  >
+      <ion-list *ngFor="let c of detalhes.lstContratos">
+        <ion-card>
+          <ion-card-header style="padding: 0">
+            <h2 style="text-align: center;">
+              <ion-icon name="md-arrow-dropright" color="btnPink" item-left></ion-icon>
+              <strong>{{c.anoContrato}}</strong>
+            </h2>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid style="padding: 0">
+              <ion-row>
+                <ion-col col-6>
+                  <span>Código do contrato</span><br>
+                  <h3><strong>{{c.codContrato}}</strong></h3>
+                </ion-col>
+                <ion-col col-6>
+                  <span>Código da empresa</span>
+                  <h3 style="text-align: center;"><strong>{{c.codEmpresa}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-6>
+                  <span>Código da modalidade</span><br>
+                  <h3><strong>{{c.codModalidade}}</strong></h3>
+                </ion-col>
+                <ion-col col-6>
+                  <span>Código do orgão</span>
+                  <h3 style="text-align: center;"><strong>{{c.codOrgao}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Descrição do orgão</span>
+                  <h3 style="text-align: center;"><strong>{{c.txtDescricaoOrgao}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Data de assinatura do contrato</span>
+                  <h3 style="text-align: center;"><strong>{{c.datAssinaturaContrato}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Data de publicação do contrato</span>
+                  <h3 style="text-align: center;"><strong>{{c.datPublicacaoContrato}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Data de vigência</span>
+                  <h3 style="text-align: center;"><strong>{{c.datVigencia}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Número original do contrato</span>
+                  <h3 style="text-align: center;"><strong>{{c.numOriginalContrato}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Razão Social</span>
+                  <h3 style="text-align: center;"><strong>{{c.txtRazaoSocial}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Objetivo do contrato</span>
+                  <h3 style="text-align: center;"><strong>{{c.txtObjetoContrato}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-12>
+                  <span>Descrição da modalidade</span>
+                  <h3 style="text-align: center;"><strong>{{c.txtDescricaoModalidade}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-6>
+                  <span>Valor de aditamento</span>
+                  <h3 style="text-align: center;"><strong>{{c.valAditamentos}}</strong></h3>
+                </ion-col>
+                <ion-col col-6>
+                  <span>Valor da anulação</span>
+                  <h3 style="text-align: center;"><strong>{{c.valAnulacao}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-6>
+                  <span>Valor Anulado Empenho</span>
+                  <h3 style="text-align: center;"><strong>{{c.valAnuladoEmpenho}}</strong></h3>
+                </ion-col>
+                <ion-col col-6>
+                  <span>Valor total do empenho</span>
+                  <h3 style="text-align: center;"><strong>{{c.valTotalEmpenhado}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-6>
+                  <span>Valor empenhado líquido</span>
+                  <h3 style="text-align: center;"><strong>{{c.valEmpenhadoLiquido}}</strong></h3>
+                </ion-col>
+                <ion-col col-6>
+                  <span>Valor liquidado</span>
+                  <h3 style="text-align: center;"><strong>{{c.valLiquidado}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-6>
+                  <span>Valor Pago</span>
+                  <h3 style="text-align: center;"><strong>{{c.valPago}}</strong></h3>
+                </ion-col>
+                <ion-col col-6>
+                  <span>Valor Principal</span>
+                  <h3 style="text-align: center;"><strong>{{c.valPrincipal}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+
+              <ion-row>
+                <ion-col col-6>
+                  <span>Valor de reajustes</span>
+                  <h3 style="text-align: center;"><strong>{{c.valReajustes}}</strong></h3>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+
+              <ion-col col-12>
+                <span>Tipo de contratação</span>
+                <h3 style="text-align: center;"><strong>{{c.txtTipoContratacao}}</strong></h3>
+              </ion-col>
+            </ion-row>
+
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+<!--
+
+
+              <p style="margin-top:18px" ion-text color="primary">Código do contrato</p>
+              <p >{{c.codContrato}}</p>
+              <p ion-text color="primary">Ano do contrato</p>
+              <p>{{c.anoContrato}}</p>
+              <p ion-text color="primary">Código do evento</p>
+              <p>{{c.codEvento}}</p>
+              <p ion-text color="primary">Código da modalidade</p>
+              <p>{{c.codModalidade}}</p>
+              <p ion-text color="primary">Código da empresa</p>
+              <p>{{c.codEmpresa}}</p>
+              <p ion-text color="primary">Código do orgão</p>
+              <p>{{c.codOrgao}}</p>
+              <p ion-text color="primary">Descrição do orgão</p>
+              <p>{{c.txtDescricaoOrgao}}</p>
+              <p ion-text color="primary">Data de assinatura do contrato</p>
+              <p>{{c.datAssinaturaContrato}}</p>
+              <p ion-text color="primary">Data de publicação do contrato</p>
+              <p>{{c.datPublicacaoContrato}}</p>
+              <p ion-text color="primary">Data de vigência</p>
+              <p>{{c.datVigencia}}</p>
+              <p ion-text color="primary">Número original do contrato</p>
+              <p>{{c.numOriginalContrato}}</p>
+              <p ion-text color="primary">Razão Social</p>
+              <p>{{c.txtRazaoSocial}}</p>
+              <p ion-text color="primary">Objetivo do contrato</p>
+              <p>{{c.txtObjetoContrato}}</p>
+              <p ion-text color="primary">Descrição da modalidade</p>
+              <p>{{c.txtDescricaoModalidade}}</p>
+              <p ion-text color="primary">Valor de aditamento</p>
+              <p>{{c.valAditamentos}}</p>
+              <p ion-text color="primary">Valor da anulação</p>
+              <p>{{c.valAnulacao}}</p>
+              <p ion-text color="primary">Valor Anulado Empenho</p>
+              <p>{{c.valAnuladoEmpenho}}</p>
+              <p ion-text color="primary">Valor total do empenho</p>
+              <p>{{c.valTotalEmpenhado}}</p>
+              <p ion-text color="primary">Valor empenhado líquido</p>
+              <p>{{c.valEmpenhadoLiquido}}</p>
+              <p ion-text color="primary">Valor liquidado</p>
+              <p>{{c.valLiquidado}}</p>
+              <p ion-text color="primary">Valor Pago</p>
+              <p>{{c.valPago}}</p>
+              <p ion-text color="primary">Valor Principal</p>
+              <p>{{c.valPrincipal}}</p>--
+              <p ion-text color="primary">Valor de reajustes</p>
+              <p>{{c.valReajustes}}</p>
+              <p ion-text color="primary">Tipo de contratação</p>
+              <p>{{c.txtTipoContratacao}}</p> -->
+  </ion-list>
+
+
+  <ion-fab right bottom>
+   <button ion-fab color="btnPink" ><ion-icon name="search"></ion-icon></button>
+   <ion-fab-list side="left">
+      <button color="btnPurple" (click)="openCredoresContrato()" ion-button>Credores</button>
+    </ion-fab-list>
+ </ion-fab>

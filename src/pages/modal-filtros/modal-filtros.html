@@ -1,0 +1,42 @@
+
+<ion-header>
+  <ion-navbar color="headerColor">
+      <ion-title>
+        <ion-icon item-left (click)="closeModal()"  name="md-arrow-round-back"></ion-icon>
+        Filtros
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="purple" floating>Código do contrato</ion-label>
+      <ion-input type="text" [(ngModel)]="filtros.codContrato"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="purple" floating>CPF/CNPJ</ion-label>
+      <ion-input type="text" [(ngModel)]="filtros.numCpfCnpj"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="purple" floating>Código da Empresa</ion-label>
+      <ion-input type="text" [(ngModel)]="filtros.codEmpresa"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="purple" floating>Código do órgão</ion-label>
+      <ion-input type="text" [(ngModel)]="filtros.codOrgao"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="purple" >Ano do Contrato</ion-label>
+      <ion-datetime min="2000" [(ngModel)]="filtros.anoContrato" displayFormat="YYYY"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <button bottom ion-button full primary color="purple" (click)="aplicarFiltros()"> Aplicar filtros</button>
+
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar color="headerColor">
+    <ion-title>Gráficos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+    
+<ion-content padding>
+  <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="chartLegend"
+      [chartType]="chartType"></canvas>
+</ion-content>
