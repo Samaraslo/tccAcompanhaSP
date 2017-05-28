@@ -19,6 +19,7 @@ export class FuncoesPage {
 
   doughnutChart: any;
   objFuncoes: any = {};
+  anoDif: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -57,7 +58,9 @@ export class FuncoesPage {
         });
   }
 
-
+buscarComAnoDiferente(){
+  this.consultarFuncoes(this.anoDif);
+}
   consultarFuncoes(anoParam){
   console.log('0');
   //anoParam = this.myYear;

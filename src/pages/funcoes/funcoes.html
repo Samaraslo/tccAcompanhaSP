@@ -10,5 +10,19 @@
 <ion-content padding>
   <h3>Areas</h3>
       <canvas #doughnutCanvas></canvas>
+
+      <ion-card>
+        <ion-card-header>
+            Pesquisar ano/mês diferente
+        </ion-card-header>
+
+        <ion-card-content>
+
+          <ion-item item-left>
+            <ion-label stacked>Ano:</ion-label>
+            <ion-datetime displayFormat="YYYY" [(ngModel)]="anoDif" placeholder="Selecione o ano" min="2003"></ion-datetime>
+          </ion-item>
+        <button bottom ion-button full small primary color="purple" (click)="buscarComAnoDiferente()">Buscar</button>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
-   

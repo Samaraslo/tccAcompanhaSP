@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { DespesasServico } from '../../providers/despesas-servico';
 import { Utils } from '../../global/util';
 import { FuncoesPage } from '../funcoes/funcoes';
 import { DespesafiltrosPage } from '../despesafiltros/despesafiltros';
-
 
 @Component({
   selector: 'page-despesas',
@@ -37,6 +36,7 @@ export class DespesasPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public despesasServico: DespesasServico,
+              public loadingCtrl: LoadingController,
               private utils: Utils) {
 
 
@@ -56,6 +56,7 @@ export class DespesasPage {
   }
 
   carregarGrafico(){
+
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
         data: {
@@ -82,26 +83,33 @@ export class DespesasPage {
                 borderWidth: 1
               }
             ]
-        },   
+        },
       options: {
-      /*  tooltips:{
+        responsive:true,
+         scales: {
+          yAxes: [{
+            display: false
+          }],
+        },
+        tooltips:{
           callbacks:{
             label: function(tooltipItem, data){
-
-              return this.convertToMoney(data.datasets[tooltipItem.datasetIndex].data);
-
+              let num = data.datasets[tooltipItem.datasetIndex].data[0].toFixed(2);
+              num = num.replace(".",",");
+              console.log(String(num).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1."));
+              return 'R$ ' + String(num).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
             }
           }
-        },*/
-          scales: {
+        },
+      /*    scales: {
               yAxes: [{
                   ticks: {
 
                       beginAtZero:false
                     }
               }]
-          }
-      }
+          }*/
+    }
 
     });
   }
@@ -130,47 +138,31 @@ export class DespesasPage {
   }
 
   consultarDespesas(anoParam, mesParam){
-  console.log('0');
-  //anoParam = this.myYear;
-  //mesParam = this.myMonth;
-  console.log('anoParam' + anoParam + 'mesParam' + mesParam);
+
+    let loader = this.loadingCtrl.create();
+
+  loader.present().then(() => {
 
       let strParam = 'anoDotacao='+ anoParam + '&mesDotacao='  + mesParam;
 
         this.despesasServico.getDespesasProvider(strParam)
         .then((res) => {
           if (res) {
-            this.objDespesas = res;
 
-            console.log('1', this.objDespesas);
+            this.objDespesas = res;
 
             this.valOrcadoInicio = this.objDespesas.lstDespesas[0].valOrcadoInicial;
             this.valOrcadoAtual = this.objDespesas.lstDespesas[0].valOrcadoAtualizado;
             this.valRealizado = this.objDespesas.lstDespesas[0].valPagoExercicio;
-            console.log('11 valOrcadoInicio'+ this.valOrcadoInicio + 'valOrcadoAtual' + this.valOrcadoAtual + 'valRealizado' + this.valRealizado);
-
-            let value =  this.objDespesas.lstDespesas[0].valOrcadoInicial;
-            let num = value.toFixed(2);
-            num = num.replace(".",",");
-
-            let value2 =  this.objDespesas.lstDespesas[0].valOrcadoAtual;
-            let num2 = value.toFixed(2);
-            num2 = num2.replace(".",",");
-
-            let value3 =  this.objDespesas.lstDespesas[0].valRealizado;
-            let num3 = value.toFixed(2);
-            num3 = num3.replace(".",",");
-
-            this.valOrcadoInicioFormat = num.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-            this.valOrcadoAtualFormat = num2.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-            this.valRealizadoFormat = num3.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
 
 
-            console.log('22 valOrcadoInicioFormat'+ this.valOrcadoInicioFormat + 'valOrcadoAtual' + this.valOrcadoAtualFormat + 'valRealizado' + this.valRealizadoFormat);
-              this.carregarGrafico();
+            this.carregarGrafico();
+            loader.dismiss();
           }
         }, (error) => {
           console.log('2', error);
+          loader.dismiss();
+        })
         })
   }
 
