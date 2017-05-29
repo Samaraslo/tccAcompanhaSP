@@ -114,12 +114,6 @@ export class DespesasPage {
     });
   }
 
-  convertToMoney(value){
-    let num = value.toFixed(2);
-    num = num.replace(".",",");
-    return 'R$' + num.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-  }
-
   buscarComAnoMesDiferente(){
     console.log(this.anoDif +'/'+this.mesDif);
     this.labelMes = this.mesDif;

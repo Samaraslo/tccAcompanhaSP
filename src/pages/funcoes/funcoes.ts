@@ -1,5 +1,5 @@
 import { Component, ViewChild} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { DespesasServico } from '../../providers/despesas-servico';
 
@@ -20,15 +20,26 @@ export class FuncoesPage {
   doughnutChart: any;
   objFuncoes: any = {};
   anoDif: any;
+  mesDif: any;
+  valRealizadoSaude: any;
+  valRealizadoSeguranca: any;
+  valRealizadoCultura: any;
+  valRealizadoEducacao: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public loadingCtrl: LoadingController,
               public despesasServico: DespesasServico) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FuncoesPage');
-    this.carregarGraficoFuncoes();
-    this.consultarFuncoes(this.navParams.get('anoParam'));
+    //this.carregarGraficoFuncoes();
+  //  this.consultarFuncoes(this.navParams.get('anoParam'));
+    this.consultarDespesasFuncoes("2017","05","10");
+    this.consultarDespesasFuncoes("2017","05","06");
+    this.consultarDespesasFuncoes("2017","05","12");
+    this.consultarDespesasFuncoes("2017","05","13");
+//    this.carregarGraficoFuncoes();
   }
 
   carregarGraficoFuncoes(){
@@ -36,10 +47,10 @@ export class FuncoesPage {
 
             type: 'doughnut',
             data: {
-                labels: ["Saúde", "Segurança Pública", "Esporte", "Educação"],
+                labels: ["Saúde", "Segurança Pública", "Cultura", "Educação"],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12, 19, 3, 5],
+                    data: [this.valRealizadoSaude, this.valRealizadoSeguranca, this.valRealizadoCultura, this.valRealizadoEducacao],
                     backgroundColor: [
                       "#FF6384",
                       "#36A2EB",
@@ -58,9 +69,46 @@ export class FuncoesPage {
         });
   }
 
-buscarComAnoDiferente(){
-  this.consultarFuncoes(this.anoDif);
+buscarComAnoMesDiferente(){
+  this.consultarDespesasFuncoes(this.anoDif, this.mesDif,"10");
+  this.consultarDespesasFuncoes(this.anoDif, this.mesDif,"06");
+  this.consultarDespesasFuncoes(this.anoDif, this.mesDif,"12");
+  this.consultarDespesasFuncoes(this.anoDif, this.mesDif,"13");
 }
+
+consultarDespesasFuncoes(anoParam, mesParam, codFuncao){
+
+  let loader = this.loadingCtrl.create();
+
+loader.present().then(() => {
+
+    let strParam = 'anoDotacao='+ anoParam + '&mesDotacao='  + mesParam + '&codFuncao=' + codFuncao;
+
+    this.despesasServico.getDespesasProvider(strParam)
+    .then((res) => {
+      if (res) {
+
+        this.objFuncoes = res;
+
+        if(codFuncao == '10')
+        this.valRealizadoSaude = this.objFuncoes.lstDespesas[0].valPagoExercicio;
+        if(codFuncao == '06')
+        this.valRealizadoSeguranca = this.objFuncoes.lstDespesas[0].valPagoExercicio;
+        if(codFuncao == '12')
+        this.valRealizadoEducacao =  this.objFuncoes.lstDespesas[0].valPagoExercicio;
+        if(codFuncao == '13')
+        this.valRealizadoCultura =  this.objFuncoes.lstDespesas[0].valPagoExercicio;
+
+        this.carregarGraficoFuncoes();
+        loader.dismiss();
+      }
+    }, (error) => {
+      console.log('2', error);
+      loader.dismiss();
+      })
+  })
+}
+
   consultarFuncoes(anoParam){
   console.log('0');
   //anoParam = this.myYear;
