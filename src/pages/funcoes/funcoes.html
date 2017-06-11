@@ -50,4 +50,13 @@
         <button bottom ion-button full small primary color="purple" (click)="buscarComAnoMesDiferente()">Buscar</button>
       </ion-card-content>
     </ion-card>
+
+    <ion-label stacked>Selecione área:</ion-label>
+    <ion-select [(ngModel)]="mesDif" placeholder="Selecione">
+      <ion-option>Saúde</ion-option>
+      <ion-option>Educação</ion-option>
+      <ion-option>Transporte</ion-option>
+    </ion-select>
+
+
 </ion-content>

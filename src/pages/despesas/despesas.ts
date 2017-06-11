@@ -101,14 +101,6 @@ export class DespesasPage {
             }
           }
         },
-      /*    scales: {
-              yAxes: [{
-                  ticks: {
-
-                      beginAtZero:false
-                    }
-              }]
-          }*/
     }
 
     });
@@ -147,6 +139,7 @@ export class DespesasPage {
 
             this.valOrcadoInicio = this.objDespesas.lstDespesas[0].valOrcadoInicial;
             this.valOrcadoAtual = this.objDespesas.lstDespesas[0].valOrcadoAtualizado;
+// valLiquidado - trocar o deibaixo por valLiquidado
             this.valRealizado = this.objDespesas.lstDespesas[0].valPagoExercicio;
 
 
